@@ -29,6 +29,7 @@ export const CreateActivity: React.FC<ShowModalProps> = ({showModal, setShowModa
     const userOptions = users!
         .map(user => ({value: user.cid, label: user.firstName + ' ' + user.lastName, selected: selectedUser === user.cid }))
         .sort((a, b) => a.label.localeCompare(b.label));
+        
     const handleCreateActivity = async () => {
         if (!ValidateActivity(activityState, setInvalidInputFields) && !override) {
             setShowErrorModal(true);

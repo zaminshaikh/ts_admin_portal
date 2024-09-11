@@ -70,7 +70,7 @@ export const ActivityInputModalBody: React.FC<ActivityInputProps> = ({
     if (clientState?.firstName && clientState?.lastName) {
         recipients.push({ value: `${clientState.firstName} ${clientState.lastName}`, 
             label: `${clientState.firstName} ${clientState.lastName}`,
-            selected: true });
+            });
     }
     
     // Add the default options
@@ -104,6 +104,8 @@ export const ActivityInputModalBody: React.FC<ActivityInputProps> = ({
 
     useEffect(() => {
         if (activityState.recipient === null || activityState.recipient === '') {return;}
+        console.log("ACTIVITY", activityState);
+        console.log("CLIENT", clientState);
         setIsRecipientSameAsUser(activityState.recipient == clientState?.firstName + ' ' + clientState?.lastName);
     }, [activityState.recipient, clientState]);
 
@@ -157,9 +159,7 @@ export const ActivityInputModalBody: React.FC<ActivityInputProps> = ({
                             setClientState(await db.getUser(cid) ?? await db.getUser(activityState.parentDocId ?? ''));
 
                             // Update the recipient as well if the checkbox is checked
-                            if (isRecipientSameAsUser) {
-                                setActivityState({ ...activityState, recipient: user });
-                            }
+                            setActivityState({ ...activityState, recipient: user });
                         }
                     }}
                 />
@@ -207,6 +207,7 @@ export const ActivityInputModalBody: React.FC<ActivityInputProps> = ({
                         id="recipient"
                         className="mb-3a custom-multiselect-dropdown"
                         options={recipients}
+                        defaultValue={activityState.recipient}
                         placeholder="Select Recipient"
                         selectAll={false}
                         multiple={false}
@@ -214,10 +215,17 @@ export const ActivityInputModalBody: React.FC<ActivityInputProps> = ({
                         allowCreateOptions={true}
                         onChange={async (selectedValue) => {
                             if (selectedValue.length === 0) {
-                                setActivityState({ ...activityState, recipient: '' });
+                                setActivityState({
+                                    ...activityState, // Using current activityState directly
+                                    recipient: '', // Update only the recipient field
+                                });
                             } else {
-
-                                setActivityState({ ...activityState, recipient: selectedValue.map(selected => selected.label as string)[0] });
+                                const newRecipient = selectedValue.map(selected => selected.label as string)[0];
+                                setActivityState({
+                                    ...activityState, // Using current activityState directly
+                                    recipient: newRecipient, // Update recipient field
+                                });
+                                console.log("NEW REC", newRecipient);
                             }
                         }}
                     />
