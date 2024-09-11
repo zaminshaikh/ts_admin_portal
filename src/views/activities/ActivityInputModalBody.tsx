@@ -59,11 +59,12 @@ export const ActivityInputModalBody: React.FC<ActivityInputProps> = ({
     
     const db = new DatabaseService();
 
+    const [isRecipientSameAsUser, setIsRecipientSameAsUser] = useState<boolean>(true);
     const recipients: Option[] = [];
 
     // Add company name if it exists
     if (clientState?.companyName) {
-        recipients.push({ value: clientState.companyName, label: clientState.companyName });
+        recipients.push({ value: clientState.companyName, label: clientState.companyName, selected: !isRecipientSameAsUser });
     }
     
     // Add full name if both first and last names exist
@@ -75,7 +76,7 @@ export const ActivityInputModalBody: React.FC<ActivityInputProps> = ({
     
     // Add the default options
     recipients.push(
-        { value: "IRA", label: "IRA" },
+        { value: "IRA", label: "IRA", selected: !clientState?.companyName && !isRecipientSameAsUser },
         { value: "ROTH", label: "ROTH" },
         { value: "SEP", label: "SEP" }
     );
@@ -85,7 +86,6 @@ export const ActivityInputModalBody: React.FC<ActivityInputProps> = ({
         ? roundToNearestHour(activityState.time.toDate())
         : roundToNearestHour(activityState.time);
     const [date, setDate] = React.useState<Date | null>(initialDate);
-    const [isRecipientSameAsUser, setIsRecipientSameAsUser] = useState<boolean>(true);
 
     const handleDateChange = (newDate: Date | null) => {
         if (newDate === null) { return; }
