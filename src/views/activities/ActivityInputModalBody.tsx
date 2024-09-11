@@ -59,6 +59,27 @@ export const ActivityInputModalBody: React.FC<ActivityInputProps> = ({
     
     const db = new DatabaseService();
 
+    const recipients: Option[] = [];
+
+    // Add company name if it exists
+    if (clientState?.companyName) {
+        recipients.push({ value: clientState.companyName, label: clientState.companyName });
+    }
+    
+    // Add full name if both first and last names exist
+    if (clientState?.firstName && clientState?.lastName) {
+        recipients.push({ value: `${clientState.firstName} ${clientState.lastName}`, 
+            label: `${clientState.firstName} ${clientState.lastName}`,
+            selected: true });
+    }
+    
+    // Add the default options
+    recipients.push(
+        { value: "IRA", label: "IRA" },
+        { value: "ROTH", label: "ROTH" },
+        { value: "SEP", label: "SEP" }
+    );
+
     // Convert and round the date to the nearest hour
     const initialDate = activityState.time instanceof Timestamp
         ? roundToNearestHour(activityState.time.toDate())
@@ -170,7 +191,7 @@ export const ActivityInputModalBody: React.FC<ActivityInputProps> = ({
                     </CInputGroup>
                     </CCol>
                     <CCol xl={8}>
-                    <CFormInput
+                    {/* <CFormInput
                         id="recipient"
                         className="mb-3a custom-multiselect-dropdown"
                         value={activityState.recipient }
@@ -179,6 +200,25 @@ export const ActivityInputModalBody: React.FC<ActivityInputProps> = ({
                         disabled={isRecipientSameAsUser} // Disable this dropdown if the checkbox is checked
                         onChange={(e) => {
                             setActivityState({ ...activityState, recipient: e.target.value });
+                        }}
+                    /> */}
+
+                    <CMultiSelect
+                        id="recipient"
+                        className="mb-3a custom-multiselect-dropdown"
+                        options={recipients}
+                        placeholder="Select Recipient"
+                        selectAll={false}
+                        multiple={false}
+                        disabled={isRecipientSameAsUser} // Disable this dropdown if the checkbox is checked
+                        allowCreateOptions={true}
+                        onChange={async (selectedValue) => {
+                            if (selectedValue.length === 0) {
+                                setActivityState({ ...activityState, recipient: '' });
+                            } else {
+
+                                setActivityState({ ...activityState, recipient: selectedValue.map(selected => selected.label as string)[0] });
+                            }
                         }}
                     />
                     </CCol>
