@@ -11,6 +11,7 @@ import { emptyClient } from './empty_client.ts';
 
 const functions = getFunctions();
 
+
 export const roundToNearestHour = (date: Date): Date => {
     const minutes = date.getMinutes();
     const roundedDate = new Date(date);
@@ -23,6 +24,8 @@ export const roundToNearestHour = (date: Date): Date => {
 
     return roundedDate;
 };
+
+
 
 /**
  * Formats a number as a currency string.
@@ -44,19 +47,6 @@ export const roundToNearestHour = (date: Date): Date => {
 export const formatCurrency = (amount: number): string => {
     return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(amount);
 }
-
-export const emptyActivity: Activity = {
-    amount: 0,
-    fund: 'AGQ',
-    recipient: '',
-    time: roundToNearestHour(new Date()),
-    type: 'profit',
-    isDividend: false,
-    sendNotif: true,
-    isAmortization: false,
-    notes: undefined,
-    parentName: '',
-};
 
 
 

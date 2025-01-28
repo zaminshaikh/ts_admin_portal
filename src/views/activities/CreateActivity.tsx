@@ -1,7 +1,9 @@
 import { CButton, CModal, CModalBody, CModalFooter, CModalHeader, CModalTitle} from "@coreui/react-pro"
 import { act, useEffect, useState } from "react";
 import React from "react";
-import { DatabaseService, emptyActivity, emptyClient } from '../../db/database.ts'
+import { DatabaseService } from '../../db/database.ts'
+import { emptyActivity } from '../../db/empty_activity.ts'
+import { emptyClient } from '../../db/empty_client.ts'
 import { Activity, Client, ScheduledActivity } from '../../db/interfaces.ts';
 import { ActivityInputModalBody } from "./ActivityInputModalBody.tsx";
 import { ValidateActivity } from "./ActivityInputModalBody.tsx";
