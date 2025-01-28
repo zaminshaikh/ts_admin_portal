@@ -7,6 +7,7 @@ import { Timestamp } from 'firebase/firestore';
 import { getFunctions, httpsCallable } from "firebase/functions";
 import { formatDate } from 'src/utils/utilities.ts'
 import { Client, Activity, ScheduledActivity, Notification, GraphPoint, StatementData, AssetDetails } from './interfaces';
+import { emptyClient } from './empty_client.ts';
 
 const functions = getFunctions();
 
@@ -21,56 +22,6 @@ export const roundToNearestHour = (date: Date): Date => {
     roundedDate.setMinutes(0, 0, 0); // Reset minutes, seconds, and milliseconds to 0
 
     return roundedDate;
-};
-
-export const emptyClient: Client = {
-    firstName: '',
-    lastName: '',
-    companyName: '',
-    address: '',
-    dob: null,
-    phoneNumber: '',
-    firstDepositDate: null,
-    beneficiaries: [],
-    connectedUsers: [],
-    cid: '',
-    uid: '',
-    appEmail: '',
-    initEmail: '',
-    totalAssets: 0,
-    ytd: 0,
-    totalYTD: 0,
-    assets: {
-        agq: {
-            personal: {
-                amount: 0,
-                firstDepositDate: null,
-                displayTitle: 'Personal',
-                index: 0,
-            },
-        },
-        ak1: {
-            personal: {
-                amount: 0,
-                firstDepositDate: null,
-                displayTitle: 'Personal',
-                index: 0,
-            },
-        },
-    },
-};
-
-export const emptyActivity: Activity = {
-    amount: 0,
-    fund: 'AGQ',
-    recipient: '',
-    time: roundToNearestHour(new Date()),
-    type: 'profit',
-    isDividend: false,
-    sendNotif: true,
-    isAmortization: false,
-    notes: undefined,
-    parentName: '',
 };
 
 /**
@@ -93,6 +44,20 @@ export const emptyActivity: Activity = {
 export const formatCurrency = (amount: number): string => {
     return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(amount);
 }
+
+export const emptyActivity: Activity = {
+    amount: 0,
+    fund: 'AGQ',
+    recipient: '',
+    time: roundToNearestHour(new Date()),
+    type: 'profit',
+    isDividend: false,
+    sendNotif: true,
+    isAmortization: false,
+    notes: undefined,
+    parentName: '',
+};
+
 
 
 export class DatabaseService {

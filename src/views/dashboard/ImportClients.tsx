@@ -2,7 +2,8 @@ import { CButton, CFormInput, CModal, CModalBody, CModalFooter, CModalHeader, CM
 import { useEffect, useState } from "react";
 import React from "react";
 import { AssetDetails, Client } from "src/db/interfaces";
-import { DatabaseService, emptyClient } from "src/db/database";
+import { DatabaseService } from "src/db/database";
+import { emptyClient } from "src/db/empty_client";
 import Papa from "papaparse";
 import * as XLSX from "xlsx";
 import EditClient from './EditClient';
