@@ -2,7 +2,8 @@ import { CButton, CLoadingButton, CModal, CModalFooter, CModalHeader, CModalTitl
 import { useEffect, useState } from "react";
 // import { IMaskMixin } from 'react-imask'
 import React from "react";
-import { DatabaseService, Client, emptyClient } from '../../db/database.ts'
+import { DatabaseService, emptyClient } from '../../db/database.ts'
+import { Client } from '../../db/interfaces.ts'
 import { ClientInputModalBody, ValidateClient } from './ClientInputModalBody.tsx'
 import { FormValidationErrorModal } from '../../components/ErrorModal';
 import { Option, OptionsGroup } from '@coreui/react-pro/dist/esm/components/multi-select/types';

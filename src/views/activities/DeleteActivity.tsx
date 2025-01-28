@@ -2,7 +2,8 @@ import React from 'react';
 import { CModal, CModalHeader, CModalTitle, CModalBody, CModalFooter, CButton, CToast, CToastBody, CToastHeader } from '@coreui/react-pro';
 import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Activity, DatabaseService, formatCurrency, ScheduledActivity } from 'src/db/database';
+import { DatabaseService, formatCurrency } from 'src/db/database';
+import { Activity, ScheduledActivity } from 'src/db/interfaces';
 
 interface DeleteActivityProps {
     showModal: boolean;

@@ -14,7 +14,7 @@ import {
 } from "@coreui/react-pro";
 import CIcon from "@coreui/icons-react";
 import { cilPencil, cilTrash, cilArrowTop, cilArrowBottom } from "@coreui/icons";
-import { Client } from "../db/database";
+import { Client } from "../db/interfaces";
 
 interface AssetFormComponentProps {
   title: string;

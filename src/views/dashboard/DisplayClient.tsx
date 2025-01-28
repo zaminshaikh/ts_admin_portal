@@ -1,5 +1,5 @@
 import { CModal, CModalHeader, CModalTitle } from "@coreui/react-pro"
-import { Client } from "src/db/database";
+import { Client } from "src/db/interfaces";
 import { ClientInputModalBody } from "./ClientInputModalBody";
 
 

@@ -2,7 +2,8 @@ import { CButton, CFormInput, CInputGroup, CInputGroupText, CModal, CModalBody, 
 import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
-import { DatabaseService, Client } from "src/db/database";
+import { DatabaseService } from "src/db/database";
+import { Client } from "src/db/interfaces";
 
 interface ShowModalProps {
         showModal: boolean;

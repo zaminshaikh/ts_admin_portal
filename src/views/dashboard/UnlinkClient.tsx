@@ -14,7 +14,8 @@ import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { set } from "date-fns";
 import { useEffect, useState } from "react";
-import { Client, DatabaseService } from "src/db/database";
+import { Client } from "src/db/interfaces";
+import { DatabaseService } from "src/db/database";
 
 
 interface ShowModalProps {

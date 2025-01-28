@@ -1,7 +1,8 @@
 import { CButton, CFormInput, CModal, CModalBody, CModalFooter, CModalHeader, CModalTitle, CTable, CTableBody, CTableDataCell, CTableHead, CTableHeaderCell, CTableRow } from "@coreui/react-pro";
 import { useEffect, useState } from "react";
 import React from "react";
-import { AssetDetails, Client, DatabaseService, emptyClient } from "src/db/database";
+import { AssetDetails, Client } from "src/db/interfaces";
+import { DatabaseService, emptyClient } from "src/db/database";
 import Papa from "papaparse";
 import * as XLSX from "xlsx";
 import EditClient from './EditClient';

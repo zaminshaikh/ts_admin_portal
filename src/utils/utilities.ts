@@ -1,5 +1,5 @@
 import { isValid, parse } from "date-fns";
-import { Activity, Client } from "src/db/database";
+import { Activity, Client } from "src/db/interfaces";
 
 export const toTitleCase = (str: string, exceptions: string[] = []) => {
     return str.split(' ').map(word => {

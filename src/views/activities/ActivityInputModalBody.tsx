@@ -1,7 +1,8 @@
 import { CModal, CModalHeader, CModalTitle, CModalFooter, CButton, CCol, CContainer, CDatePicker, CFormInput, CFormSelect, CFormSwitch, CInputGroup, CInputGroupText, CModalBody, CMultiSelect, CRow, CTooltip, CFormTextarea } from "@coreui/react-pro";
 import { Option } from "@coreui/react-pro/dist/esm/components/multi-select/types";
 import React, { act, useEffect, useState, useMemo } from "react";
-import { Activity, Client, DatabaseService, emptyClient, roundToNearestHour} from "src/db/database";
+import { DatabaseService, emptyClient, roundToNearestHour} from "src/db/database";
+import { Activity, Client} from "src/db/interfaces";
 import { EditAssetsSection } from "../../components/EditAssetsSection";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";

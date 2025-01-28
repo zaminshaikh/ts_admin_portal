@@ -1,7 +1,8 @@
 import { useTranslation } from "react-i18next";
 import ActivitiesTable from "./ActivitiesTable";
 import { useEffect, useState } from "react";
-import { DatabaseService, Client, ScheduledActivity, Activity } from "src/db/database";
+import { DatabaseService } from "src/db/database";
+import { Client, ScheduledActivity, Activity } from "src/db/interfaces";
 import { CButton, CSpinner } from "@coreui/react-pro";
 import ScheduledActivitiesTable from "./ScheduledActivitiesTable";
 import { CreateActivity } from "./CreateActivity";

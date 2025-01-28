@@ -13,7 +13,8 @@ import {
   CFormSelect,
   CAlert,
 } from '@coreui/react-pro';
-import { Client, DatabaseService } from 'src/db/database';
+import { Client } from 'src/db/interfaces';
+import { DatabaseService } from 'src/db/database';
 import { EditAssetsSection } from 'src/components/EditAssetsSection';
 import { ref, uploadBytes } from 'firebase/storage';
 import { getStorage } from 'firebase/storage';

@@ -1,6 +1,7 @@
 import React, { act, useEffect, useState } from 'react';
 import { CModal, CModalHeader, CModalTitle, CModalFooter, CButton } from '@coreui/react-pro';
-import { DatabaseService, Activity, emptyActivity, Client, emptyClient, ScheduledActivity } from 'src/db/database';
+import { DatabaseService, emptyActivity, emptyClient } from 'src/db/database';
+import { Activity, Client, ScheduledActivity } from 'src/db/interfaces';
 import { ValidateActivity, ActivityInputModalBody } from './ActivityInputModalBody';
 import { FormValidationErrorModal } from '../../components/ErrorModal';
 import { amortize } from 'src/utils/utilities';

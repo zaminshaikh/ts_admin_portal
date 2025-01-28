@@ -11,7 +11,8 @@ import {
   CModalTitle,
 } from '@coreui/react-pro';
 import { getStorage, ref, listAll, getMetadata, getDownloadURL, deleteObject } from 'firebase/storage';
-import { DatabaseService, Client } from 'src/db/database.ts';
+import { DatabaseService } from 'src/db/database.ts';
+import { Client } from 'src/db/interfaces.ts';
 import config from '../../../../config.json';
 
 // Import CoreUI Icons

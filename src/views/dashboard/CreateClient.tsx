@@ -1,7 +1,8 @@
 import { CButton, CModal, CModalHeader, CModalTitle, CModalFooter} from "@coreui/react-pro"
 import { useEffect, useState } from "react";
 import React from "react";
-import { DatabaseService, Client, emptyClient } from '../../db/database.ts'
+import { DatabaseService, emptyClient } from '../../db/database.ts'
+import { Client } from '../../db/interfaces.ts'
 import { ClientInputModalBody } from "./ClientInputModalBody.tsx";
 import { ValidateClient } from "./ClientInputModalBody.tsx";
 import { FormValidationErrorModal } from '../../components/ErrorModal.tsx';

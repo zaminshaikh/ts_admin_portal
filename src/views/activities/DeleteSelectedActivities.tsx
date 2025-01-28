@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { CButton, CModal, CModalHeader, CModalTitle, CModalBody, CModalFooter, CSmartTable, CBadge, CFormInput, CInputGroup, CInputGroupText, CLoadingButton } from '@coreui/react-pro'
 import { toSentenceCase } from "src/utils/utilities";
-import { Activity, DatabaseService, formatCurrency } from 'src/db/database'
+import { DatabaseService, formatCurrency } from 'src/db/database'
+import { Activity } from 'src/db/interfaces';
 import { faExclamationTriangle, faLock } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { signInWithEmailAndPassword, getAuth } from 'firebase/auth'

@@ -1,5 +1,6 @@
 import { CButton, CCardBody, CCol, CCollapse, CContainer, CRow, CSmartTable, CSpinner } from '@coreui/react-pro';
-import { DatabaseService, Client, emptyClient, formatCurrency } from 'src/db/database.ts';
+import { DatabaseService, emptyClient, formatCurrency } from 'src/db/database.ts';
+import { Client } from 'src/db/interfaces';
 import { useEffect, useState } from 'react';
 import CreateClient from './CreateClient';
 import { DisplayClient } from './DisplayClient';

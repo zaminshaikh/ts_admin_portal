@@ -1,5 +1,6 @@
 import { CModalBody, CInputGroup, CInputGroupText, CFormInput, CFormCheck, CMultiSelect, CContainer, CRow, CCol, CButton, CLoadingButton, CTable, CTableHead, CTableHeaderCell, CTableRow, CTableBody, CTableDataCell, CForm, CFormSelect } from '@coreui/react-pro';
-import { Activity, DatabaseService, GraphPoint, Client, formatCurrency, emptyActivity } from '../../db/database.ts'
+import { DatabaseService, formatCurrency, emptyActivity } from '../../db/database.ts'
+import { Activity, GraphPoint, Client } from '../../db/interfaces.ts';
 import { Option, OptionsGroup } from '@coreui/react-pro/dist/esm/components/multi-select/types';
 import Papa from 'papaparse';
 import { EditAssetsSection } from "../../components/EditAssetsSection";

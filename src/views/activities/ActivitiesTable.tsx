@@ -1,6 +1,7 @@
 import { SetStateAction, useEffect, useRef, useState } from "react";
 import { CBadge, CButton, CCol, CContainer, CMultiSelect, CRow, CSmartTable, CSpinner, CToaster } from "@coreui/react-pro";
-import { Activity, DatabaseService, Client, formatCurrency } from "src/db/database";
+import { DatabaseService, formatCurrency } from "src/db/database";
+import { Activity, Client } from "src/db/interfaces";
 import { CreateActivity } from "./CreateActivity";
 import DeleteActivity from "./DeleteActivity";
 import EditActivity from "./EditActivity";

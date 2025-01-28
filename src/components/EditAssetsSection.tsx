@@ -10,7 +10,7 @@ import {
   CModalFooter,
   CFormInput,
 } from "@coreui/react-pro";
-import { Client } from "../db/database";
+import { Client } from "../db/interfaces";
 import { AssetFormComponent } from "./AssetFormComponent";
 import { cilArrowTop, cilArrowBottom } from "@coreui/icons"; // Import icons for reordering
 
