@@ -12,6 +12,7 @@ export type Route = {
 const Activities = React.lazy(() => import('./views/activities/Activities'))
 const Dashboard = React.lazy(() => import('./views/dashboard/Dashboard'))
 const Statements = React.lazy(() => import('./views/statements/Statements'))
+const Graphs = React.lazy(() => import('./views/graphs/Graphs'))
 
 const routes: Route[] = [
   { path: '/', exact: true, name: <Translation>{(t) => t('home')}</Translation> },
@@ -30,6 +31,11 @@ const routes: Route[] = [
     name: <Translation>{(t) => t('statements')}</Translation>,
     element: Statements,
   },
+  {
+    path: '/graphs',
+    name: <Translation>{(t) => t('graphs')}</Translation>,
+    element: Graphs,
+  }
 ]
 
 export default routes

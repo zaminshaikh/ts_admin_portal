@@ -10,6 +10,7 @@ import {
   cilEnvelopeOpen,
   cilFile,
   cilFolderOpen,
+  cilGraph,
   cilGrid,
   cilLayers,
   cilMap,
@@ -61,6 +62,12 @@ const _nav: NavItem[] = [
     to: '/statements',
     icon: <CIcon icon={cilFolderOpen} customClassName="nav-icon" />,
   },
+  {
+    component: CNavItem,
+    name: "Graphs",
+    to: '/graphs',
+    icon: <CIcon icon={cilGraph} customClassName="nav-icon" />,
+  }
 ]
 
 export default _nav

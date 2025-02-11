@@ -50,12 +50,17 @@ export interface Client {
     lastLoggedIn?: string | null | undefined;
     notes?: string | undefined;
     activities?: Activity[];
-    graphPoints?: GraphPoint[];
+    graphs?: Graph[];
     assets: {
         [fundKey: string]: {
             [assetType: string]: AssetDetails;
         };
     };
+}
+
+export interface Graph {
+    account: string;
+    graphPoints: GraphPoint[];
 }
 
 export interface Activity {
@@ -102,6 +107,8 @@ export interface Notification {
 export interface GraphPoint {
     time: Date | Timestamp | null;
     amount: number | null;
+    cashflow: number | null;
+    account: string;
 }
 
 export interface StatementData {
@@ -352,6 +359,7 @@ export class DatabaseService {
             return parsedAssets;
         };
 
+
         const client: Client = {
             cid: clientSnapshot.id,
             uid: data?.uid ?? '',
@@ -508,13 +516,6 @@ export class DatabaseService {
                 addDoc(activityCollectionRef, filteredActivity);
             });
             // Use Promise.all to add all activities concurrently
-            await Promise.all(promise);
-        }
-            
-        if (client.graphPoints !== undefined) {
-            // Add all the graph points to the subcollection
-            const promise = client.graphPoints.map((graphPoint) => addDoc(graphCollectionRef, graphPoint));
-            // Use Promise.all to add all graph points concurrently
             await Promise.all(promise);
         }
     }
